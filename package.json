@@ -1,0 +1,30 @@
+{
+  "name": "npm-install-peers",
+  "version": "1.0.0",
+  "description": "CLI command to install npm peerDependencies",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spatie/npm-install-peers.git"
+  },
+  "keywords": [
+    "npm",
+    "peerdependencies",
+    "peers",
+    "peerdeps"
+  ],
+  "author": "Sebastian De Deyne",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/spatie/npm-install-peers/issues"
+  },
+  "homepage": "https://github.com/spatie/npm-install-peers#readme",
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "babel-runtime": "^5.8.25",
+    "eslint": "^1.7.2"
+  }
+}
