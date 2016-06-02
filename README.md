@@ -1,8 +1,7 @@
 # NPM Install Peers
 
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/spatie/blender/font-awesome-filetypes.svg?style=flat-square)](https://travis-ci.org/spatie/font-awesome-filetypes)
-[![npm](https://img.shields.io/npm/dt/npm-install-peers.svg?style=flat-square)]()
+[![npm](https://img.shields.io/npm/dt/npm-install-peers.svg?style=flat-square)](https://www.npmjs.com/package/npm-install-peers)
 
 CLI command to install npm peerDependencies. This can be useful when developing modules.
 
