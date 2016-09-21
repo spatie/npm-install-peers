@@ -1,10 +1,10 @@
 {
   "name": "npm-install-peers",
-  "version": "1.0.1-rc.1",
+  "version": "1.0.1-rc.2",
   "description": "CLI command to install npm peerDependencies",
   "main": "dist/index.js",
   "bin": {
-    "npm-install-peers": "./index.js"
+    "npm-install-peers": "dist/index.js"
   },
   "scripts": {
     "lint": "node_modules/.bin/eslint .",
