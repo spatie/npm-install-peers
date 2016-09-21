@@ -1,6 +1,3 @@
-#!/usr/bin/env node
-'use strict'
-
 const chalk = require('chalk')
 const fs = require('fs')
 const npm = require('npm')
@@ -10,7 +7,7 @@ const die = (message) => console.error(chalk.bold.red(message))
 const warn = (message) => console.warn(chalk.yellow(message))
 
 fs.readFile('package.json', 'utf-8', function(error, contents) {
-    
+
     if (contents === undefined) {
         return die('There doesn\'t seem to be a package.json here')
     }
