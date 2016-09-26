@@ -1,7 +1,7 @@
 const chalk = require('chalk')
 const fs = require('fs')
 const npm = require('npm')
-const Package = require('./src/package')
+const Package = require('./package')
 
 const die = (message) => console.error(chalk.bold.red(message))
 const warn = (message) => console.warn(chalk.yellow(message))

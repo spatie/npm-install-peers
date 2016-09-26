@@ -2,12 +2,12 @@
   "name": "npm-install-peers",
   "version": "1.0.1-rc.2",
   "description": "CLI command to install npm peerDependencies",
-  "main": "dist/index.js",
+  "preferGlobal": true,
   "bin": {
-    "npm-install-peers": "dist/index.js"
+    "npm-install-peers": "bin/npm-install-peers.js"
   },
   "scripts": {
-    "lint": "node_modules/.bin/eslint .",
+    "lint": "eslint .",
     "build": "babel src -d dist",
     "prepublish": "npm run build"
   },
@@ -28,13 +28,12 @@
   },
   "homepage": "https://github.com/spatie/npm-install-peers#readme",
   "devDependencies": {
-    "babel": "^5.8.23",
     "babel-cli": "^6.14.0",
     "babel-preset-es2015": "^6.14.0",
-    "babel-runtime": "^5.8.25",
     "eslint": "^1.7.2"
   },
   "dependencies": {
+    "chalk": "^1.1.3",
     "npm": "^3.3.9"
   }
 }
