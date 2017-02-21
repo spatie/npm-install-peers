@@ -18,6 +18,10 @@ class Package {
     get peerDependencies() {
         return this.contents.peerDependencies || []
     }
+
+    get peerInstallOptions() {
+        return this.contents.peerInstallOptions || {}
+    }
 }
 
 module.exports = Package
