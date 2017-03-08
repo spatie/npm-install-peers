@@ -28,7 +28,9 @@ fs.readFile('package.json', 'utf-8', function(error, contents) {
         return `${key}@${peerDependencies[key]}`
     })
 
-    npm.load(function() {
+    let peerInstallOptions=packageContents.peerInstallOptions
+
+    npm.load(peerInstallOptions, function() {
         npm.commands.install(packages)
     })
 })
