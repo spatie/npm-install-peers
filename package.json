@@ -1,6 +1,6 @@
 {
   "name": "npm-install-peers",
-  "version": "1.2.0.-rc.2",
+  "version": "1.2.0-rc.2",
   "description": "CLI command to install npm peerDependencies",
   "preferGlobal": true,
   "bin": {
