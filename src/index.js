@@ -30,7 +30,7 @@ fs.readFile('package.json', 'utf-8', function(error, contents) {
 
     let peerInstallOptions=packageContents.peerInstallOptions
 
-    peerInstallOptions['--no-save'] = true;
+    peerInstallOptions['save'] = false;
     npm.load(peerInstallOptions, function() {
         npm.commands.install(packages)
     })
