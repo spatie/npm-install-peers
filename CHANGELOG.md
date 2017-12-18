@@ -2,6 +2,9 @@
 
 All Notable changes to `npm-install-peers` will be documented in this file.
 
+## 1.2.1
+- Add npm as an explicit dependency
+
 ## 1.2.0
 - Added support for npm 5
 
