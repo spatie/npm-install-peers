@@ -8,6 +8,9 @@ const warn = (message) => console.warn(chalk.yellow(message))
 
 fs.readFile('package.json', 'utf-8', function(error, contents) {
 
+    let packages = []
+    let peerInstallOptions = {}
+
     if (contents === undefined) {
         return die('There doesn\'t seem to be a package.json here')
     }
@@ -18,20 +21,33 @@ fs.readFile('package.json', 'utf-8', function(error, contents) {
         return die('Invalid package.json contents')
     }
 
-    if (! packageContents.hasPeerDependencies()) {
-        return warn('This package doesn\'t seem to have any peerDependencies')
+    if (packageContents.hasPeerDependencies()) {
+        let peerDependencies = packageContents.peerDependencies
+
+        Object.keys(peerDependencies).map(function(key) {
+            packages.push(`${key}@${peerDependencies[key]}`)
+        })
+
+        peerInstallOptions = packageContents.peerInstallOptions
+    } else {
+        warn('This package doesn\'t seem to have any peerDependencies defined in package.json')
     }
 
-    let peerDependencies = packageContents.peerDependencies
-
-    let packages = Object.keys(peerDependencies).map(function(key) {
-        return `${key}@${peerDependencies[key]}`
-    })
-
-    let peerInstallOptions=packageContents.peerInstallOptions
-
-    peerInstallOptions['save'] = false;
+    peerInstallOptions['save'] = false
     npm.load(peerInstallOptions, function() {
-        npm.commands.install(packages)
+        
+        // Scan for peerDependency problems caused by sub-dependencies
+        npm.commands.ls([], true, function (error, data, lite) {
+            lite.problems.map(function(problem) {
+                let keyMatch = problem.match(/peer dep missing: ([^,]+)/)
+
+                if (keyMatch && keyMatch[1] && packages.indexOf(keyMatch[1]) === -1) {
+                    packages.push(keyMatch[1])
+                }
+            })
+
+            npm.commands.install(packages)
+        })
+
     })
 })
