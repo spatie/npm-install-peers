@@ -5,6 +5,24 @@
 
 CLI command to install npm peerDependencies. This can be useful when developing modules.
 
+Consider the following dependencies:
+
+```json
+{
+    "dependencies": {
+        "react-router": "4.2.0"
+    },
+    "devDependencies": {},
+    "peerDependencies": {
+        "moment": "2.21.0"
+    },
+}
+```
+
+If you run this `npm-install-peers` command, `moment` will be installed because it's a **direct** peer dependency of your project. You'll still get a warning that `react-router` is missing a `react` peer dependency. You'll still need to install `react` yourself, this command **only installs direct peer dependencies**.
+
+You probably don't need this package! It's generally a better idea to have your `peerDependencies` contents as `devDependencies` too.
+
 ## Postcardware
 
 You're free to use this package (it's [MIT-licensed](LICENSE.md)), but if it makes it to your production environment you are required to send us a postcard from your hometown, mentioning which of our package(s) you are using.
@@ -25,7 +43,7 @@ npm install -g npm-install-peers
 npm-install-peers
 ```
 
-This will read out your `package.json` file and install all of it's peerDependencies.
+This will read out your `package.json` file and install all of it's peerDependencies. There are no other options.
 
 ## Contributing
 
