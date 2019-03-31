@@ -43,7 +43,7 @@ npm install -g npm-install-peers
 npm-install-peers
 ```
 
-This will read out your `package.json` file and install all of it's peerDependencies. There are no other options.
+This will read out your `package.json` file and install all of its peerDependencies. There are no other options.
 
 ## Contributing
 
