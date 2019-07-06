@@ -1,4 +1,5 @@
 const chalk = require('chalk')
+const path = require('path')
 const fs = require('fs')
 const npm = require('npm')
 const Package = require('./package')
@@ -6,7 +7,17 @@ const Package = require('./package')
 const die = (message) => console.error(chalk.bold.red(message))
 const warn = (message) => console.warn(chalk.yellow(message))
 
-fs.readFile('package.json', 'utf-8', function(error, contents) {
+const argv = require('minimist')(process.argv.slice(2))
+
+let packagePath
+
+if (argv.prefix && typeof argv.prefix === 'string') {
+    packagePath = path.resolve(argv.prefix, 'package.json')
+} else {
+    packagePath = 'package.json'
+}
+
+fs.readFile(packagePath, 'utf-8', function(error, contents) {
 
     if (contents === undefined) {
         return die('There doesn\'t seem to be a package.json here')
